@@ -1,13 +1,17 @@
 // /scripts/entry.ts
 import type { App } from 'vue'
 import ButtonPlugin, { Button } from './Button'
+import IconPlugin, { Icon } from './Icon'
+
 
 const installs = [
   ButtonPlugin,
+  IconPlugin
 ]
 
 export {
   Button,
+  Icon
 }
 
 export default {
