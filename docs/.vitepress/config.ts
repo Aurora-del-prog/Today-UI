@@ -32,9 +32,9 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' },
-      { text: 'Test', link: '/markdown-examples' }
+      { text: '主页', link: '/' },
+      { text: '组件', link: '/markdown-examples' },
+      { text: '指南', link: '/markdown-examples' }
     ],
 
     sidebar: [
@@ -47,7 +47,7 @@ export default defineConfig({
         ]
       },
       {
-        text: 'Basic',
+        text: '基础组件',
         items: [
           {text: 'Button', link: '/components/button' }
         ]

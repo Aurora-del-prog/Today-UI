@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "My Awesome Project"
+  name: "Vue3 UI组件可"
   text: "A VitePress Site"
   tagline: My great project tagline
   actions:
