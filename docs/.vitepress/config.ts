@@ -51,7 +51,8 @@ export default defineConfig({
         items: [
           {text: 'Button', link: '/components/button' },
           {text: 'Collapse ', link: '/components/collapse ' },
-          {text: 'Tooltip ', link: '/components/tooltip' }
+          {text: 'Tooltip ', link: '/components/tooltip' },
+          {text: 'Input ', link: '/components/input' }
         ]
       }
     ],
