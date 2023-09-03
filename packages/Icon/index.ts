@@ -1,11 +1,7 @@
-import Icon from "./src/Icon.vue"
-import type {App} from "vue";
+import Icon from "./src/icon.vue";
+import { withInstall} from '../withInstall'
 
 
-export  { Icon }
+const SIcon = withInstall(Icon)
 
-export default {
-  install(app: App) {
-    app.component(Icon.name, Icon)
-  }
-}
+export default SIcon
