@@ -33,7 +33,7 @@ import { debounce } from 'lodash-es'
 import type { TooltipProps, TooltipEmits, TooltipInstance } from './types'
 import useClickOutside from '../../../src/hooks/useClickOutside'
 defineOptions({
-  name: 'VkTooltip'
+  name: 'STooltip'
 })
 const props = withDefaults(defineProps<TooltipProps>(), {
   placement: 'bottom',
@@ -133,6 +133,7 @@ watch(() => props.trigger, (newTrigger, oldTrigger) => {
 // { flush: 'post' } 选项，意味着在 isOpen 的值发生变化后，等待下一次 DOM 更新周期后执行 watch 回调函数的逻辑
 // 想让动画有消失动画，而不是立马执行popperInstance?.destroy()消失，所以需要等动画播放完，再销毁
 watch(isOpen, (newValue) => {
+  console.log(newValue)
   if (newValue) {
     if (triggerNode.value && popperNode.value) {
       popperInstance = createPopper(triggerNode.value, popperNode.value, popperOptions.value)
