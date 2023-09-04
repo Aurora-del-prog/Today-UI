@@ -1,5 +1,8 @@
-import type { App, Plugin } from 'vue'
+import type { App, Plugin, AppContext } from 'vue'
 
+type SFCInstallWithContext<T> = SFCWithInstall<T> & {
+  _context: AppContext | null
+}
 type SFCWithInstall<T> = T & Plugin
 
 // withInstall 函数接受一个泛型类型 T 和一个名为 extra 的可选对象，其中 extra 是一个键值对，表示需要额外添加的组件
@@ -23,4 +26,13 @@ export const withInstall = <T, E extends Record<string, any>>(
 
   // 返回一个交叉类型，将 T 断言为具体的类型 T & plugin & Record<string, any>
   return main as SFCWithInstall<T> & E
+}
+
+export const withInstallFunction = <T>(fn: T, name: string) => {
+  (fn as SFCWithInstall<T>).install = (app: App) => {
+    (fn as SFCInstallWithContext<T>)._context = app._context
+    app.config.globalProperties[name] = fn
+  }
+
+  return fn as SFCInstallWithContext<T>
 }

@@ -7,6 +7,7 @@ import '@vitepress-demo-preview/component/dist/style.css'
 import '../../../src/styles/index.css'
 import './custom.css'
 import SUI from '../../../packages'
+import '../../../packages/Message/index'
 
 library.add(fas)
 

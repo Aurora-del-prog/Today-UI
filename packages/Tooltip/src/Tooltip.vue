@@ -31,7 +31,7 @@ import { createPopper } from '@popperjs/core'
 import type { Instance } from '@popperjs/core'
 import { debounce } from 'lodash-es'
 import type { TooltipProps, TooltipEmits, TooltipInstance } from './types'
-import useClickOutside from '../../../src/hooks/useClickOutside'
+import useClickOutside from '../../hooks/useClickOutside'
 defineOptions({
   name: 'STooltip'
 })
