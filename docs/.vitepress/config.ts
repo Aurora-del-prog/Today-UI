@@ -55,8 +55,8 @@ export default defineConfig({
           {text: 'Input ', link: '/components/input' },
           {text: 'Message ', link: '/components/message' },
           {text: 'Switch ', link: '/components/switch' },
-          {text: 'Select ', link: '/components/select' }
-
+          {text: 'Select ', link: '/components/select' },
+          {text: 'AutoComplete ', link: '/components/autoComplete' }
         ]
       }
     ],
