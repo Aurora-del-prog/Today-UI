@@ -4,6 +4,7 @@ export interface TooltipProps {
   trigger?: 'hover' | 'click';
   placement?: Placement;
   manual?: boolean;
+  // Popper.js的选项，部分选项类型，可选。默认为undefined。Popper.js是一个用于创建弹出框和下拉菜单等定位的库，这里可以传递一些配置选项给Popper.js。
   popperOptions?: Partial<Options>;
   transition?: string;
   openDelay?: number;

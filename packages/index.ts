@@ -5,6 +5,8 @@ import SCollapseItem from "./CollapseItem";
 import STooltip from "./Tooltip";
 import SInput from "./Input";
 import SSwitch from "./Switch";
+import SSelect from "./Select";
+
 
 import type { Component, App } from 'vue'
 
@@ -20,6 +22,7 @@ const components: {
     STooltip,
     SInput,
     SSwitch,
+    SSelect,
 }
 // 插件声明：声明所有插件
 // 插件注册：在 Vue 项目的入口文件中，通过 ( app.use(插件) ) 进行注册
@@ -45,6 +48,7 @@ export {
     STooltip,
     SInput,
     SSwitch,
+    SSelect,
 }
 export default {
   // 导出的对象必须具有 install，才能被 Vue.use() 方法安装

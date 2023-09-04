@@ -53,7 +53,9 @@ export default defineConfig({
           {text: 'Collapse ', link: '/components/collapse ' },
           {text: 'Tooltip ', link: '/components/tooltip' },
           {text: 'Input ', link: '/components/input' },
-          {text: 'Message ', link: '/components/message' }
+          {text: 'Message ', link: '/components/message' },
+          {text: 'Switch ', link: '/components/switch' },
+          {text: 'Select ', link: '/components/select' }
 
         ]
       }
