@@ -8,6 +8,8 @@ import SSwitch from "./Switch";
 import SSelect from "./Select";
 import SAutoComplete from './AutoComplete'
 import SMessage from './Message'
+import SDialog from './Dialog'
+
 
 
 import type { Component, App } from 'vue'
@@ -27,6 +29,7 @@ const components: {
     SSelect,
     SAutoComplete,
     SMessage,
+    SDialog
 }
 // 插件声明：声明所有插件
 // 插件注册：在 Vue 项目的入口文件中，通过 ( app.use(插件) ) 进行注册
@@ -54,7 +57,8 @@ export {
     SSwitch,
     SSelect,
     SAutoComplete,
-    SMessage
+    SMessage,
+    SDialog
 }
 export default {
   // 导出的对象必须具有 install，才能被 Vue.use() 方法安装
