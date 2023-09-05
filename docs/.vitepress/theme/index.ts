@@ -7,13 +7,15 @@ import '@vitepress-demo-preview/component/dist/style.css'
 import '../../../src/styles/index.css'
 import './custom.css'
 import SUI from '../../../packages'
-import '../../../packages/Message/index'
+import { Message } from '../../../packages/Message/index'
+
 
 library.add(fas)
 
 export default {
   ...DefaultTheme,
   enhanceApp({ app }) {
+    app.config.globalProperties.$message = Message;
     app.use(SUI)
     app.component('demo-preview', ElementPlusContainer)
   }  

@@ -5,13 +5,22 @@
   </div>
 </template>
 <script setup>
-import { createMessage, closeAll } from '../../../packages/Message'
+import { getCurrentInstance } from "vue";
+const instance = getCurrentInstance();
+const { $message } = instance.appContext.config.globalProperties;
+let t1 = null;
+let t2 = null;
+let t3 = null;
 const open = () => {
-  createMessage({ message: 'hello world1', duration: 0 })
-  createMessage({ message: 'hello world2', duration: 0 })
-  createMessage({ message: 'hello world3', duration: 0 })
+  t1 =  $message({ message: 'hello world1', duration: 0 })
+  t2 = $message({ message: 'hello world2', duration: 0 })
+  t3 = $message({ message: 'hello world3', duration: 0 })
 }
 const close = () => {
-  closeAll()
+  // eslint-disable-next-line no-undef
+  t1.closeAll()
+  t2.closeAll()
+  t3.closeAll()
+
 }
 </script>

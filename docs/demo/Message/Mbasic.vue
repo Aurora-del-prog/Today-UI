@@ -6,11 +6,14 @@
 </template>
 <script setup>
 import { h } from 'vue'
-import { createMessage } from '../../../packages/Message'
+import { getCurrentInstance } from "vue";
+const instance = getCurrentInstance();
+const { $message } = instance.appContext.config.globalProperties;
+console.log(instance.appContext.config.globalProperties)
 const open = () => {
-  createMessage({ message: 'hello world' })
+  $message({ message: 'hello world' })
 }
 const open2 = () => {
-  createMessage({ message: h('b', 'this is bold') })
+  $message({ message: h('b', 'this is bold') })
 }
 </script>

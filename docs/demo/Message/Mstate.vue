@@ -7,8 +7,10 @@
   </div>
 </template>
 <script setup>
-import { createMessage } from '../../../packages/Message'
+import { getCurrentInstance } from "vue";
+const instance = getCurrentInstance();
+const { $message } = instance.appContext.config.globalProperties;
 const open = (type) => {
-  createMessage({ message: 'hello world', type })
+  $message({ message: 'hello world', type })
 }
 </script>

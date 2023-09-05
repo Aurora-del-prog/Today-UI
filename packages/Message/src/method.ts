@@ -23,6 +23,11 @@ export const createMessage = (props: CreateMessageProps) => {
       instance.vm.exposed!.visible.value = false
     }
   }
+  const closeAll = () => {
+    instances.forEach(instance => {
+      instance.destory()
+    })
+  }
   const newProps = {
     ...props,
     id,
@@ -39,7 +44,8 @@ export const createMessage = (props: CreateMessageProps) => {
     vnode,
     vm,
     props: newProps,
-    destory: manualDestroy
+    destory: manualDestroy,
+    closeAll
   }
   instances.push(instance)
   return instance

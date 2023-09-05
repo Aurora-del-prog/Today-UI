@@ -16,5 +16,6 @@ export interface MessageContext {
   vm: ComponentInternalInstance;
   props: MessageProps;
   destory: () => void;
+  closeAll: () => void;
 }
 export type CreateMessageProps = Omit<MessageProps, 'onDestory' | 'id' | 'zIndex'>
