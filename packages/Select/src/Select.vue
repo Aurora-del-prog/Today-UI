@@ -279,8 +279,8 @@ const itemSelect = (e: SelectOption) => {
   if (e.disabled) return
   states.inputValue = e.label
   states.selectedOption = e
-  emits('change', e.value)
-  emits('update:modelValue', e.value)
+  emits('change', e)
+  emits('update:modelValue', e)
   controlDropdown(false)
   inputRef.value.ref.focus()
 }

@@ -1,10 +1,13 @@
 <template>
   <s-select v-model="test" placeholder="基础选择器，请选择" :options="options2" />
-  <span>{{test}}</span>
+  <p>
+    <pre>{{test.label}}</pre>
+  </p>
 </template>
 <script setup>
 import { ref } from 'vue'
-const test = ref('1')
+const test = ref('')
+console.log(test.value)
 const options2 = [
   { label: 'hello', value: '1' },
   { label: 'xyz', value: '2' },
