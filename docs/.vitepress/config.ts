@@ -49,15 +49,16 @@ export default defineConfig({
       {
         text: '基础组件',
         items: [
-          {text: 'Button', link: '/components/button' },
-          {text: 'Collapse ', link: '/components/collapse ' },
-          {text: 'Tooltip ', link: '/components/tooltip' },
-          {text: 'Input ', link: '/components/input' },
-          {text: 'Message ', link: '/components/message' },
-          {text: 'Switch ', link: '/components/switch' },
-          {text: 'Select ', link: '/components/select' },
-          {text: 'AutoComplete ', link: '/components/autoComplete' },
-          {text: 'Dialog ', link: '/components/dialog' },
+          {text: 'Button 按钮', link: '/components/button' },
+          {text: 'Collapse 折叠面板', link: '/components/collapse ' },
+          {text: 'Tooltip 文字提示', link: '/components/tooltip' },
+          {text: 'Input 输入框', link: '/components/input' },
+          {text: 'Message 消息', link: '/components/message' },
+          {text: 'Switch 开关', link: '/components/switch' },
+          {text: 'Select 选择器', link: '/components/select' },
+          {text: 'AutoComplete 自动填充器', link: '/components/autoComplete' },
+          {text: 'Dialog 对话框', link: '/components/dialog' },
+          {text: 'Tree 树形控件', link: '/components/tree' },
         ]
       }
     ],
