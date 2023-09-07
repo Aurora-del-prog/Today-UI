@@ -1,0 +1,65 @@
+.s-tree {
+  /* your component style */
+  &-node {
+    text-align: center;
+    position: relative;
+  }
+  .s-tree__inChecked {
+    position: relative;
+  }
+  .s-tree-checkbox__inner {
+    position: absolute;
+    left: 6px;
+    top: 0px;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+    background: #7b87e4;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+  }
+  .s-tree__node {
+    position: relative;
+    line-height: 32px;
+
+    &--operate {
+      display: inline-flex;
+      width: 40px;
+      justify-content: space-between;
+      position: absolute;
+      right: 20px;
+    }
+    &--loading {
+      margin: 0 10px;
+    }
+    &--plus,
+    &--minus {
+      cursor: pointer;
+    }
+    &:hover {
+      background-color: #eeeeee;
+    }
+    &--iconspan {
+      margin: 0 5px;
+      cursor: pointer;
+    }
+    &--icon {
+      display: inline-block;
+    }
+    &--content {
+      border: 1px solid transparent;
+    }
+    &--drop-inner {
+      border: 1px solid silver;
+    }
+    &--drop-next {
+      border-bottom: 1px solid silver;
+    }
+    &--drop-prev {
+      border-top: 1px solid silver;
+    }
+  }
+}
