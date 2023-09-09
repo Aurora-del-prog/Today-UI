@@ -5,7 +5,7 @@ import VueMacros from 'unplugin-vue-macros'
 import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "My Awesome Project",
+  title: "S-UI",
   description: "A VitePress Site",
   vite: {
     plugins: [
@@ -32,20 +32,11 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: '主页', link: '/' },
-      { text: '组件', link: '/markdown-examples' },
-      { text: '指南', link: '/markdown-examples' }
+      { text: '指南', link: '/guide' },
+      { text: '组件', link: '/components/button' }
     ],
 
     sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' },
-          { text: 'Test here', link: '/api-examples' }
-        ]
-      },
       {
         text: '基础组件',
         items: [

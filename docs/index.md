@@ -1,25 +1,35 @@
 ---
-# https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
+
+title: S-UI
+# titleTemplate: 选项卡描述
+editLink: true
+lastUpdated: true
 hero:
-  name: "Vue3 UI组件可"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: S-UI
+  text: 适用于VUE3的组件库
+  tagline: 轻量,简约
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
-
+      text: 安装指南
+      link: /guide.md
+    - theme: brand
+      text: 组件预览
+      link: /components/button.md
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - icon: 🛠️
+    title: TypeScript
+    details: 让编译器具有智能提示，写代码tab tab tab 💟
+  - icon: ✨
+    title: 支持按需引入
+    details: 代码大小down down down ✨
+  - icon: ☘
+    title: VUE3
+    details: 适用于vue3版本，体验最新技术栈 🧡
 ---
-
+<p style="display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;">
+</p>
