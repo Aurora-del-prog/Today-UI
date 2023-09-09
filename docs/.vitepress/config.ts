@@ -40,16 +40,32 @@ export default defineConfig({
       {
         text: '基础组件',
         items: [
-          {text: 'Button 按钮', link: '/components/button' },
-          {text: 'Collapse 折叠面板', link: '/components/collapse ' },
+          {text: 'Button 按钮', link: '/components/button' }
+        ]
+      },
+      {
+        text: '反馈组件',
+        items: [
           {text: 'Tooltip 文字提示', link: '/components/tooltip' },
-          {text: 'Input 输入框', link: '/components/input' },
           {text: 'Message 消息', link: '/components/message' },
+          {text: 'Dialog 对话框', link: '/components/dialog' },
+          {text: 'Dropdown 下拉菜单', link: '/components/dropDown' },
+        ]
+      },
+      {
+        text: '表单组件',
+        items: [
+          {text: 'Input 输入框', link: '/components/input' },
           {text: 'Switch 开关', link: '/components/switch' },
           {text: 'Select 选择器', link: '/components/select' },
+        ]
+      },
+      {
+        text: '数据展示',
+        items: [
+          {text: 'Collapse 折叠面板', link: '/components/collapse ' },
           {text: 'AutoComplete 自动填充器', link: '/components/autoComplete' },
-          {text: 'Dialog 对话框', link: '/components/dialog' },
-          {text: 'Tree 树形控件', link: '/components/tree' },
+          {text: 'Tree 树形控件', link: '/components/tree' }
         ]
       }
     ],

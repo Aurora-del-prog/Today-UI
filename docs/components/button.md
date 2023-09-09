@@ -36,7 +36,7 @@ description: Button 组件的文档
 
 <preview path="../demo/Button/Bsize.vue" title="不同大小的按钮" description="Button 组件的不同大小的按钮"></preview>
 
-### Button Attributes
+<!-- ### Button Attributes
 
 | Name              | Description                                                             | Type                                                                            | Default |
 | ----------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------- |
@@ -49,4 +49,4 @@ description: Button 组件的文档
 | disabled          | disable the button                                                      | `boolean`                                                                       | false   |
 | icon              | icon component                                                          | `string`                                                                        | —       |
 | autofocus         | same as native button's `autofocus`                                     | `boolean`                                                                       | false   |
-| native-type       | same as native button's `type`                                          | `enum` - `'button'\| 'submit'\| 'reset'`                                        | button  |
+| native-type       | same as native button's `type`                                          | `enum` - `'button'\| 'submit'\| 'reset'`                                        | button  | -->

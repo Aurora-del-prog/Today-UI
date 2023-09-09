@@ -10,7 +10,7 @@
   .s-tree-checkbox__inner {
     position: absolute;
     left: 6px;
-    top: 0px;
+    top: 1px;
     width: 12px;
     height: 12px;
     cursor: pointer;
@@ -62,4 +62,9 @@
       border-top: 1px solid silver;
     }
   }
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: all 0.3s;
 }
