@@ -91,10 +91,11 @@
 </div>
 </template>
 <script setup lang="ts">
-import { ref, watch, computed, useAttrs, nextTick } from 'vue'
+import { ref, watch, computed, useAttrs, nextTick, inject } from 'vue'
 import type { Ref } from 'vue'
 import type { InputProps, InputEmits } from './types'
 import SIcon from '../../Icon'
+import type { FormItemContext } from '../../Form/src/type/form-item-type';
 
 defineOptions({
   name: 'SInput',
@@ -107,6 +108,9 @@ const innerValue = ref(props.modelValue)
 const isFocus = ref(false)
 const passwordVisible = ref(false)
 const inputRef = ref() as Ref<HTMLInputElement>
+
+  // 注入校验方法
+  const formItem = inject('FORM_ITEM_CTX') as FormItemContext
 
 const showClear = computed(() => 
   props.clearable &&
@@ -130,6 +134,8 @@ const keepFocus = async () => {
 const handleInput = () => {
   emits('update:modelValue', innerValue.value)
   emits('input', innerValue.value)
+   // 执行 formItem 中传入的 validate 方法，进行表单验证
+   formItem?.validate()
 }
 const handleChange = () => {
   emits('change', innerValue.value)

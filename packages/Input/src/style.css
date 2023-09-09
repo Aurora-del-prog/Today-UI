@@ -20,7 +20,7 @@
   font-size: var(--vk-font-size-base);
   display: inline-flex;
   width: 100%;
-  margin: 0 10px;
+  margin: 0 10px 0 0;
   line-height: var(--vk-input-height);
   box-sizing: border-box;
   vertical-align: middle;
