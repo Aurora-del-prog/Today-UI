@@ -1,0 +1,23 @@
+{
+  "name": "@sui/components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./index.ts",
+  "scripts": {
+    "build": "vite build",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "keywords": [],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sui/utils": "workspace:^1.0.0"
+  },
+  "devDependencies": {
+    "@vitest/coverage-c8": "^0.29.2"
+  }
+}

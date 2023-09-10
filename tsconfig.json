@@ -7,7 +7,17 @@
       "@/*": ["./src/*"]
     },
     "types": ["unplugin-vue-macros/macros-global" /* ... */],
-    "ignoreDeprecations": "5.0"
+    "ignoreDeprecations": "5.0",
+    "jsx": "preserve",
+    "strict": true,
+    "target": "ES2015",
+    "suppressImplicitAnyIndexErrors": true,
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "lib": ["esnext", "dom"],
+    "resolveJsonModule": true
   },
   "vueCompilerOptions": {
     "plugins": [
