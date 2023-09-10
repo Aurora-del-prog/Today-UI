@@ -6,8 +6,8 @@ import { ElementPlusContainer } from '@vitepress-demo-preview/component'
 import '@vitepress-demo-preview/component/dist/style.css'
 import '../../../src/styles/index.css'
 import './custom.css'
-import SUI from '../../../packages'
-import { Message } from '../../../packages/Message/index'
+import SUI from '../../../packages/components'
+import { Message } from '../../../packages/components/src/Message/index'
 
 
 library.add(fas)
