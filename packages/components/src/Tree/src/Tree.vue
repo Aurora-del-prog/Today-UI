@@ -1,4 +1,5 @@
 <template>
+  <Transition name="slide" v-on="transitionEvents">
   <div 
     class="s-tree">
     <template 
@@ -88,6 +89,7 @@
       </Transition>
     </template>
   </div>
+</Transition>
 </template>
 
 <script setup lang="ts">
