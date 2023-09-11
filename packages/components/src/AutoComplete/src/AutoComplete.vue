@@ -57,7 +57,7 @@
   </div>  
   </template>
   <script setup lang="ts">
-  import { ref, reactive, computed, watch } from 'vue'
+  import { ref, reactive, computed, watch} from 'vue'
   import type { Ref } from 'vue'
   import { isFunction, debounce } from 'lodash-es'
   import type { SelectProps, SelectEmits, SelectOption, SelectStates } from './types'
@@ -68,7 +68,6 @@
   import RenderVnode from '../../Common/RenderVnode'
   import type { InputInstance } from '../../Input/src/types'
 import '../style/style.css'
-  
   // 函数通过调用props.options.find()方法，在选项列表中查找第一个值等于给定value的选项。如果找到匹配的选项，则将其赋值给option变量；否则，option变量为null。
   const findOption = (value: string) => {
     const option = props.options.find(option => option.value === value)
