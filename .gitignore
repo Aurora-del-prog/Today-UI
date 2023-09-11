@@ -29,4 +29,3 @@ coverage
 
 #Vitepress
 docs/.vitepress/cache
-docs/.vitepress/dist
