@@ -14,7 +14,10 @@ defineOptions({
   name: 'SIcon',
   inheritAttrs: false
 })
-const props = defineProps<IconProps>()
+
+const props = withDefaults(defineProps<IconProps>(), {
+  border: false
+}) 
 const filteredProps = computed(() => omit(props, ['type', 'color']))
 const customStyles = computed(() => {
   return props.color ? { color: props.color } : {}

@@ -1,27 +1,17 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
-    "types": ["unplugin-vue-macros/macros-global" /* ... */],
-    "ignoreDeprecations": "5.0",
     "jsx": "preserve",
     "strict": true,
     "target": "ES2015",
+    "ignoreDeprecations": "5.0",
     "suppressImplicitAnyIndexErrors": true,
     "module": "ESNext",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "moduleResolution": "Node",
     "lib": ["esnext", "dom"],
-    "resolveJsonModule": true
-  },
-  "references": [
-    {
-      "path": "./tsconfig.config.json"
-    }
-  ]
+    "resolveJsonModule": true,
+    "types": ["unplugin-vue-define-options/macros-global"]
+  }
 }
