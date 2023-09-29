@@ -36,11 +36,11 @@ export default defineConfig({
 
   plugins: [
     dts({
-      outputDir: [
+      outDir: [
         resolve(__dirname, './dist/es'),
         resolve(__dirname, './dist/lib')
       ],
-      tsConfigFilePath: '../../tsconfig.json'
+      tsconfigPath: '../../tsconfig.json'
     })
   ]
 });

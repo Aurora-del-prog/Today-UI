@@ -95,7 +95,7 @@ import { ref, watch, computed, useAttrs, nextTick, inject } from 'vue'
 import type { Ref } from 'vue'
 import type { InputProps, InputEmits } from './types'
 import SIcon from '../../Icon'
-import type { FormItemContext } from '../../Form/src/type/form-item-type';
+import { formItemContextKey } from '../../Form/src/type/type'
 import '../style/style.css'
 
 
@@ -111,9 +111,11 @@ const isFocus = ref(false)
 const passwordVisible = ref(false)
 const inputRef = ref() as Ref<HTMLInputElement>
 
-  // 注入校验方法
-  const formItem = inject('FORM_ITEM_CTX') as FormItemContext
-
+// 注入校验方法
+const formItemContext = inject(formItemContextKey)
+const runValidation = (trigger?: string) => {
+  formItemContext?.validate(trigger)
+}
 const showClear = computed(() => 
   props.clearable &&
   !props.disabled &&
@@ -137,19 +139,24 @@ const handleInput = () => {
   emits('update:modelValue', innerValue.value)
   emits('input', innerValue.value)
    // 执行 formItem 中传入的 validate 方法，进行表单验证
-   formItem?.validate()
+   runValidation('input')
 }
 const handleChange = () => {
   emits('change', innerValue.value)
+  runValidation('change')
 }
 const handleFocus = (event: FocusEvent) => {
   isFocus.value = true
   emits('focus', event)
+  runValidation('focus')
+
 }
 const handleBlur = (event: FocusEvent) => {
   console.log('blur triggered')
   isFocus.value = false
   emits('blur', event)
+ // 执行 formItem 中传入的 validate 方法，进行表单验证
+  runValidation('blur')
 }
 const clear = () => {
   console.log('clear triggered')
