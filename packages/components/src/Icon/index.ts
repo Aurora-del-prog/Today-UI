@@ -1,4 +1,4 @@
-import Icon from "./src/icon.vue";
+import Icon from "./src/Icon.vue";
 import { withInstall} from '../withInstall'
 
 
