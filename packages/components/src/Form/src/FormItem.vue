@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, reactive, provide } from 'vue';
+import { computed, inject, reactive, provide, onMounted, onUnmounted } from 'vue';
 import Schema from 'async-validator'
 import { formContextKey,formItemContextKey } from './type/type';
 import { isNil } from 'lodash-es';
@@ -86,7 +86,7 @@ const validate= (trigger?: string) => {
     })
     validateStatus.loading = true
     // innerValue.value：值
-    validator.validate({ [modelName]: innerValue.value })
+    return validator.validate({ [modelName]: innerValue.value })
       .then(() =>{
         validateStatus.state = 'success'
         console.log('first')
@@ -96,6 +96,7 @@ const validate= (trigger?: string) => {
         validateStatus.state = 'error'
         validateStatus.errorMsg = (errors && !errors.length) ? errors[0].message || '' : ''
         console.log(e.errors)
+        return Promise.reject(e)
       })
       .finally(() => {
         validateStatus.loading = false
@@ -106,9 +107,22 @@ const validate= (trigger?: string) => {
 // 特定时机自动触发，blur  focus等等 传递给子组件使用
 // 如果子组件不是我们封装的，用的原生的怎么办？- 在slot操作
 const context: FormItemContext = {
-  validate
+  validate,
+  prop: props.prop || ''
 }
 provide(formItemContextKey,context)
+
+onMounted(() => {
+  if(props.prop){
+    formContext?.addField(context)
+  }
+})
+onUnmounted(() =>{
+  if(props.prop){
+    formContext?.removeField(context)
+  }
+})
+
 </script>
 
 <style lang="scss" scoped>

@@ -16,17 +16,24 @@ export interface FormItemRules extends RuleItem {
 export type FormRules = Record<string,FormItemRules[]>
 
 export interface FormContext extends FormProps {
-  model: Record<string,any>
-  rules: FormRules
+  addField: (field: FormItemContext) => void
+  removeField: (field: FormItemContext) => void
+
 }
 
 export interface FormItemContext {
+  // 类型
+  prop?: string
   validate: (trigger?: string) => any
 }
 
 export interface FormValidateFailure {
   errors: ValidateError[] | null
   fields: ValidateFieldsError
+}
+
+export interface FormInstance {
+  validate: () => Promise<any>
 }
 
 export const formContextKey: InjectionKey<FormContext> = 
