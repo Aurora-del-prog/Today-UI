@@ -63,7 +63,7 @@
 </div>  
 </template>
 <script setup lang="ts">
-import { ref, reactive, computed, watch } from 'vue'
+import { ref, reactive, computed, watch, inject } from 'vue'
 import type { Ref } from 'vue'
 import { isFunction, debounce } from 'lodash-es'
 import type { SelectProps, SelectEmits, SelectOption, SelectStates } from './types'
@@ -74,6 +74,7 @@ import SIcon from '../../Icon'
 import RenderVnode from '../../Common/RenderVnode'
 import type { InputInstance } from '../../Input/src/types'
 import '../style/style.css'
+import { formItemContextKey } from '../../Form/src/type/type'
 
 const findOption = (value: string) => {
   const option = props.options.find(option => option.value === value)
@@ -87,16 +88,21 @@ const props = withDefaults(defineProps<SelectProps>(), {
 })
 const timeout = computed(() => props.remote ? 300 : 0)
 const emits = defineEmits<SelectEmits>()
-const initialOption = findOption(props.modelValue)
+const initialOption = ref(findOption(props.modelValue?.value))
 const tooltipRef = ref() as Ref<TooltipInstance>
 const inputRef = ref() as Ref<InputInstance>
 const states = reactive<SelectStates>({
-  inputValue: initialOption ? initialOption.label : '',
-  selectedOption: initialOption,
+  inputValue: initialOption.value ? initialOption.value.label : '',
+  selectedOption: initialOption.value,
   mouseHover: false,
   loading: false,
   // 高亮
   highlightIndex: -1
+})
+watch(()=>props.modelValue,() => {
+  if(!props.modelValue){
+    states.inputValue = ''
+  }
 })
 const isDropdownShow = ref(false)
 const popperOptions: any = {
@@ -276,6 +282,12 @@ const toggleDropdown = () => {
     controlDropdown(true)
   }
 }
+
+// 注入校验方法
+const formItemContext = inject(formItemContextKey)
+const runValidation = (trigger?: string) => {
+  formItemContext?.validate(trigger).catch(e => console.log(e.errors))
+}
 const itemSelect = (e: SelectOption) => {
   if (e.disabled) return
   states.inputValue = e.label
@@ -284,5 +296,6 @@ const itemSelect = (e: SelectOption) => {
   emits('update:modelValue', e)
   controlDropdown(false)
   inputRef.value.ref.focus()
+  runValidation('')
 }
 </script>

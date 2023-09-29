@@ -10,7 +10,7 @@ export type CustomFilterFunc = (value: string) => SelectOption[];
 export type CustomFilterRemoteFunc = (value: string) => Promise<SelectOption[]>;
 export interface SelectProps {
   // v-model
-  modelValue: string;
+  modelValue: SelectOption;
   // 选项
   options?: SelectOption[];
   // 一些基本表单属性

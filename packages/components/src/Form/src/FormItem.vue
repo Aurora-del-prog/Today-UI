@@ -4,7 +4,8 @@
     :class="{
       'is-error': validateStatus.state === 'error',
       'is-success': validateStatus.state === 'success',
-      'is-loading': validateStatus.loading
+      'is-loading': validateStatus.loading,
+      'is-required': isRequired
     }"
   >
     <label class="vk-form-item__label">
@@ -30,7 +31,7 @@ import { computed, inject, reactive, provide, onMounted, onUnmounted } from 'vue
 import Schema from 'async-validator'
 import { formContextKey,formItemContextKey } from './type/type';
 import { isNil } from 'lodash-es';
-import type {FormItemProps, FormValidateFailure,FormItemContext } from './type/type'
+import type {FormItemProps, FormValidateFailure,FormItemContext,validateStatusProp,FormItemInstance } from './type/type'
 
 defineOptions({
   name: 'SFormItem'
@@ -68,14 +69,20 @@ const getTriggeredRules = (trigger?: string) => {
 }
 
 // 获取所有响应状态 reactive,控制样式，内容等等
-const validateStatus = reactive({
+const validateStatus: validateStatusProp = reactive({
   state: 'init',
   errorMsg: '',
   loading: false
 })
 
+// 初始状态
+let initialVal = null
+// 必填的话 ，前面有个红点
+const isRequired = computed(() => {
+  return itemRules.value.some(rule => rule.required)
+})
 // 校验方法
-const validate= (trigger?: string) => {
+const validate= async (trigger?: string) => {
   // 字段
   const modelName = props.prop
   const triggeredRules = getTriggeredRules(trigger)
@@ -94,8 +101,8 @@ const validate= (trigger?: string) => {
       .catch((e: FormValidateFailure) => {
         const { errors } = e
         validateStatus.state = 'error'
-        validateStatus.errorMsg = (errors && !errors.length) ? errors[0].message || '' : ''
-        console.log(e.errors)
+        validateStatus.errorMsg = (errors && errors.length) ? errors[0].message || '' : ''
+        console.log( validateStatus.state)
         return Promise.reject(e)
       })
       .finally(() => {
@@ -104,11 +111,30 @@ const validate= (trigger?: string) => {
   }
 }
 
+// 清除验证，恢复初始状态
+const clearValidate = () => {
+  validateStatus.state ='init',
+  validateStatus.errorMsg ='',
+  validateStatus.loading =false
+}
+// 恢复初始状态
+const resetField = () => {
+  clearValidate()
+  const model = formContext?.model
+  if(model && props.prop && !isNil(model[props.prop])){
+    model[props.prop] = initialVal
+    console.log(model[props.prop])
+  }
+
+}
+
 // 特定时机自动触发，blur  focus等等 传递给子组件使用
 // 如果子组件不是我们封装的，用的原生的怎么办？- 在slot操作
 const context: FormItemContext = {
   validate,
-  prop: props.prop || ''
+  prop: props.prop || '',
+  clearValidate,
+  resetField
 }
 provide(formItemContextKey,context)
 
@@ -120,9 +146,16 @@ onMounted(() => {
 onUnmounted(() =>{
   if(props.prop){
     formContext?.removeField(context)
+    initialVal = innerValue.value
   }
 })
 
+defineExpose<FormItemInstance>({
+  validateStatus,
+  validate,
+  resetField,
+  clearValidate
+})
 </script>
 
 <style lang="scss" scoped>

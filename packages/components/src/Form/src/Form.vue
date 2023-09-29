@@ -24,6 +24,19 @@ const removeField: FormContext['removeField'] = (field) =>{
   }
 } 
 
+// 重置校验和值，默认全部，key指定那些值
+const resetFields = (keys: string[] = []) => {
+  const filterArr = keys.length > 0 ? fields.filter(
+    field => keys.includes(field.prop as any)
+  ): fields
+  filterArr.forEach(field => field.resetField())
+}
+const clearValidate = (keys: string[] = []) => {
+  const filterArr = keys.length > 0 ? fields.filter(
+    field => keys.includes(field.prop as any)
+  ): fields
+  filterArr.forEach(field => field.clearValidate())
+}
 // form全局校验
 const validate = async () => {
   let validationErrors: ValidateFieldsError = {}
@@ -50,7 +63,9 @@ provide(formContextKey,{
   removeField
 })
 defineExpose<FormInstance>({
-  validate
+  validate,
+  resetFields,
+  clearValidate
 })
 </script>
 
