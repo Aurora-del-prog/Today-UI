@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, nextTick } from "vue";
+import { computed, inject, nextTick, defineProps } from "vue";
 import { CheckBoxProps } from "./checkbox";
 const emit = defineEmits(["update:modelValue", "change"]);
 const props = defineProps(CheckBoxProps);

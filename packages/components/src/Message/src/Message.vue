@@ -29,7 +29,7 @@
 </Transition>
 </template>
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, computed, defineProps } from 'vue'
 import type { MessageProps } from './types'
 import RenderVnode from '../../Common/RenderVnode'
 import SIcon from '../../Icon'

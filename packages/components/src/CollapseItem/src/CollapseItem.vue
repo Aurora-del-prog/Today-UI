@@ -27,7 +27,7 @@
 </div>
 </template>
 <script setup lang="ts">
-import { inject, computed } from 'vue'
+import { inject, computed, defineProps } from 'vue'
 import type { CollapseItemProps, CollapseContext } from './types'
 import { collapseContextKey } from './types'
 import SIcon from '../../Icon'

@@ -63,7 +63,7 @@
 </div>  
 </template>
 <script setup lang="ts">
-import { ref, reactive, computed, watch, inject } from 'vue'
+import { ref, reactive, computed, watch, inject, defineProps} from 'vue'
 import type { Ref } from 'vue'
 import { isFunction, debounce } from 'lodash-es'
 import type { SelectProps, SelectEmits, SelectOption, SelectStates } from './types'

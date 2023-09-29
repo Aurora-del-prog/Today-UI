@@ -44,7 +44,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch, defineProps } from 'vue';
 import type { DialogProps,DialogEmits } from './types';
 import SIcon from '../../Icon'
 import '../style/style.css'

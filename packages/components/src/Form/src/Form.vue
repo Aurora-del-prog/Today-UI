@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { provide } from 'vue';
+import { provide, defineProps } from 'vue';
 import type { FormProps, FormItemContext, FormContext,FormValidateFailure,FormInstance } from './type/type';
 import type { ValidateFieldsError } from "async-validator"
 import { formContextKey } from './type/type';

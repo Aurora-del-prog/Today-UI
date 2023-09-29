@@ -4,7 +4,7 @@
   </i>
 </template>
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, defineProps } from 'vue'
 import { omit } from 'lodash-es'
 import type { IconProps } from './types'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'

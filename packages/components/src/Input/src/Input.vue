@@ -91,7 +91,7 @@
 </div>
 </template>
 <script setup lang="ts">
-import { ref, watch, computed, useAttrs, nextTick, inject } from 'vue'
+import { ref, watch, computed, useAttrs, nextTick, inject, defineProps } from 'vue'
 import type { Ref } from 'vue'
 import type { InputProps, InputEmits } from './types'
 import SIcon from '../../Icon'

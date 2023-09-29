@@ -26,7 +26,7 @@
 </div>
 </template>
 <script setup lang="ts">
-import { ref, watch, reactive, onUnmounted, computed } from 'vue'
+import { ref, watch, reactive, onUnmounted, computed, defineProps } from 'vue'
 import { createPopper } from '@popperjs/core'
 import type { Instance } from '@popperjs/core'
 import { debounce } from 'lodash-es'

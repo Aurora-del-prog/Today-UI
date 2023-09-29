@@ -93,7 +93,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref, toRefs } from 'vue';
+import {ref, toRefs, defineProps } from 'vue';
 import SIcon from '../../Icon';
 import type { IInnerTreeNode, TreeProps } from './types/tree-type'
 import useTree from './hooks/use-tree'

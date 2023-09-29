@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, reactive, provide, onMounted, onUnmounted } from 'vue';
+import { computed, inject, reactive, provide, onMounted, onUnmounted, defineProps } from 'vue';
 import Schema from 'async-validator'
 import { formContextKey,formItemContextKey } from './type/type';
 import { isNil } from 'lodash-es';
